@@ -8,6 +8,6 @@ export default () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       return resolve(people)
-    }, 3000)
+    }, 1000)
   })
 }
