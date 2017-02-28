@@ -1,8 +1,11 @@
 import { createStore, applyMiddleware } from 'redux'
 import app from './reducers'
-import thunk from 'redux-thunk'
+import { createEpicMiddleware } from 'redux-observable'
+import fetchUserEpic from './epic.js'
+
+const epicMiddleware = createEpicMiddleware(fetchUserEpic)
 
 export default function configureStore() {
-  let store = createStore(app, applyMiddleware(thunk))
+  let store = createStore(app, applyMiddleware(epicMiddleware))
   return store
 }
