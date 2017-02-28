@@ -21,13 +21,7 @@ export function getDataFailure() {
 }
 
 export function fetchData() {
-  // section 1
-  return (dispatch) => {
-    dispatch(getData())
-    getPeople()
-      .then((data) => {
-        dispatch(getDataSuccess(data))
-      })
-      .catch((err) => console.log('err:', err))
+  return {
+    type: FETCHING_DATA
   }
 }
